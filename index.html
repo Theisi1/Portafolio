@@ -1,0 +1,439 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Portafolio de Isaac González</title>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet" />
+  <style>
+    /* === Estilo base === */
+    :root {
+      --verde: #4caf50;
+      --verde-oscuro: #388e3c;
+      --gris-claro: #f4f4f9;
+      --texto: #333;
+      --blanco: #fff;
+    }
+
+    * {
+      box-sizing: border-box;
+      scroll-behavior: smooth;
+    }
+
+    body {
+      font-family: "Poppins", sans-serif;
+      margin: 0;
+      padding: 0;
+      background: var(--gris-claro);
+      color: var(--texto);
+    }
+
+    /* === Encabezado === */
+    header {
+      background: linear-gradient(135deg, var(--verde), var(--verde-oscuro));
+      color: white;
+      text-align: center;
+      padding: 2.5rem 1rem;
+      position: sticky;
+      top: 0;
+      z-index: 1000;
+      box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    }
+
+    header h1 {
+      margin: 0;
+      font-size: 2.3rem;
+    }
+
+    header p {
+      margin-top: 0.5rem;
+      font-weight: 300;
+      letter-spacing: 0.5px;
+    }
+
+    nav {
+      margin-top: 1rem;
+    }
+
+    nav a {
+      margin: 0 15px;
+      text-decoration: none;
+      color: white;
+      font-weight: 600;
+      font-size: 1rem;
+      position: relative;
+    }
+
+    nav a::after {
+      content: "";
+      position: absolute;
+      left: 0;
+      bottom: -4px;
+      width: 0%;
+      height: 2px;
+      background: white;
+      transition: 0.3s;
+    }
+
+    nav a:hover::after {
+      width: 100%;
+    }
+
+    /* === Secciones === */
+    section {
+      display: none;
+      padding: 3rem 2rem;
+      max-width: 950px;
+      margin: auto;
+      animation: fadeInUp 0.5s ease;
+    }
+
+    section.active {
+      display: block;
+    }
+
+    @keyframes fadeInUp {
+      from {
+        opacity: 0;
+        transform: translateY(20px);
+      }
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    section h2 {
+      text-align: center;
+      color: var(--verde-oscuro);
+      font-size: 1.8rem;
+      margin-bottom: 1.5rem;
+    }
+
+    /* === Tarjetas === */
+    .card {
+      background: var(--blanco);
+      padding: 1.8rem;
+      margin: 1.5rem 0;
+      border-radius: 15px;
+      box-shadow: 0 4px 10px rgba(0, 0, 0, 0.08);
+      transition: transform 0.3s, box-shadow 0.3s;
+    }
+
+    .card:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 6px 15px rgba(0, 0, 0, 0.15);
+    }
+
+    h3 {
+      color: var(--verde-oscuro);
+      margin-top: 0;
+    }
+
+    h4 {
+      margin-bottom: 0.5rem;
+      color: #2e7d32;
+    }
+
+    /* === Código IEEE y tablas === */
+    .code {
+      background: #f2f2f2;
+      padding: 10px;
+      border-radius: 8px;
+      white-space: pre-wrap;
+      font-family: "Consolas", monospace;
+      margin-top: 10px;
+      border-left: 4px solid var(--verde);
+    }
+
+    .highlight {
+      color: #007700;
+      font-weight: bold;
+    }
+    .sign {
+      color: #e63946;
+      font-weight: bold;
+    }
+    .expo {
+      color: #1d3557;
+      font-weight: bold;
+    }
+    .mant {
+      color: #2a9d8f;
+      font-weight: bold;
+    }
+
+    .ieee-box {
+      text-align: center;
+      font-size: 18px;
+      letter-spacing: 3px;
+      margin-top: 20px;
+    }
+
+    .bit-labels {
+      display: flex;
+      justify-content: center;
+      margin-top: 10px;
+      font-size: 14px;
+      color: #333;
+    }
+
+    .bit-labels div {
+      width: 80px;
+      text-align: center;
+    }
+
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      margin-top: 15px;
+      font-size: 0.95rem;
+    }
+
+    table th,
+    table td {
+      border: 1px solid #ddd;
+      padding: 10px;
+      text-align: center;
+    }
+
+    table th {
+      background-color: var(--verde);
+      color: white;
+    }
+
+    table tr:nth-child(even) {
+      background-color: #f9f9f9;
+    }
+
+    /* === Iframe y botón === */
+    iframe {
+      width: 100%;
+      height: 450px;
+      border: none;
+      border-radius: 10px;
+      margin-top: 10px;
+    }
+
+    .btn-descargar {
+      display: inline-block;
+      margin-top: 12px;
+      padding: 10px 18px;
+      background: linear-gradient(135deg, var(--verde), var(--verde-oscuro));
+      color: white;
+      text-decoration: none;
+      border-radius: 8px;
+      font-weight: 600;
+      transition: 0.3s;
+    }
+
+    .btn-descargar:hover {
+      background: linear-gradient(135deg, #43a047, #2e7d32);
+      transform: scale(1.03);
+    }
+
+    /* === Pie de página === */
+    footer {
+      text-align: center;
+      padding: 1rem;
+      background: #222;
+      color: white;
+      margin-top: 20px;
+      font-size: 0.9rem;
+    }
+
+    /* === Responsivo === */
+    @media (max-width: 700px) {
+      header h1 {
+        font-size: 1.8rem;
+      }
+      nav a {
+        display: inline-block;
+        margin: 5px 10px;
+      }
+      section {
+        padding: 2rem 1rem;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <header>
+    <h1>¡Hola! Soy Isaac González</h1>
+    <p>Estudiante de Ingeniería en Ciencias de la Computación</p>
+    <nav>
+      <a onclick="mostrarSeccion('about')">Inicio</a>
+      <a onclick="mostrarSeccion('projects')">Proyectos</a>
+      <a onclick="mostrarSeccion('certificados')">Certificados</a>
+      <a onclick="mostrarSeccion('contact')">Contacto</a>
+    </nav>
+  </header>
+
+  <!-- === SOBRE MÍ === -->
+  <section id="about" class="active">
+    <h2>Sobre mí</h2>
+    <div class="card">
+      <p>
+        Soy estudiante de la <b>Escuela Politécnica Nacional</b> apasionado por las
+        <b>Ciencias de la Computación</b>. Me interesa el desarrollo de software, los sistemas
+        operativos, la inteligencia artificial y la administración de redes.  
+        Este portafolio muestra mis proyectos y actividades desarrolladas durante mi formación académica.
+      </p>
+    </div>
+  </section>
+
+  <!-- === PROYECTOS === -->
+  <section id="projects">
+    <h2>Proyectos</h2>
+
+    <!-- Actividad 1 -->
+    <div class="card">
+      <h3>Actividad extra 1</h3>
+      <p>Resolver el número <b>138.91</b> en formato IEEE 754:</p>
+      <h4>Conversión de +138.91 a IEEE 754</h4>
+
+      <div class="code">
+        Bit de signo = <span class="sign">0</span> → número positivo
+      </div>
+      <div class="code">
+        <b>Parte entera (138):</b><br>
+        138 ÷ 2 = 69 → 0<br>
+        69 ÷ 2 = 34 → 1<br>
+        34 ÷ 2 = 17 → 0<br>
+        17 ÷ 2 = 8 → 1<br>
+        8 ÷ 2 = 4 → 0<br>
+        4 ÷ 2 = 2 → 0<br>
+        2 ÷ 2 = 1 → 0<br>
+        1 ÷ 2 = 0 → 1<br><br>
+        <span class="highlight">138₁₀ = 10001010₂</span>
+      </div>
+
+      <div class="code">
+        <b>Parte fraccionaria (0.91):</b><br>
+        0.91 × 2 = 1.82 → 1<br>
+        0.82 × 2 = 1.64 → 1<br>
+        0.64 × 2 = 1.28 → 1<br>
+        0.28 × 2 = 0.56 → 0<br>
+        0.56 × 2 = 1.12 → 1<br>
+        0.12 × 2 = 0.24 → 0<br>
+        0.24 × 2 = 0.48 → 0<br>
+        0.48 × 2 = 0.96 → 0<br>
+        0.96 × 2 = 1.92 → 1<br>
+        0.92 × 2 = 1.84 → 1<br>
+        0.84 × 2 = 1.68 → 1<br>
+        0.68 × 2 = 1.36 → 1<br>
+        0.36 × 2 = 0.72 → 0<br>
+        0.72 × 2 = 1.44 → 1<br><br>
+        <span class="highlight">0.91₁₀ ≈ 0.111010111101₂</span>
+      </div>
+
+      <div class="code">
+        <b>Combinación:</b><br>10001010.111010111101
+      </div>
+
+      <div class="code">
+        <b>Normalización:</b><br>
+        1.00010101110100011110110 × 2⁷<br>
+        Exponente real = 7<br>
+        Exponente con sesgo: 127 + 7 = 134 → <span class="expo">10000110₂</span>
+      </div>
+
+      <div class="code">
+        <b>Mantisa (23 bits):</b><br>
+        <span class="mant">00010101110100011110110</span>
+      </div>
+
+      <div class="ieee-box">
+        <span class="sign">0</span>
+        <span class="expo">10000110</span>
+        <span class="mant">00010101110100011110110</span>
+      </div>
+      <div class="bit-labels">
+        <div>Signo</div><div>Exponente</div><div>Mantisa</div>
+      </div>
+      <div class="code" style="margin-top:20px;">
+        <b>IEEE 754:</b> <span class="sign">0</span><span class="expo">10000110</span><span class="mant">00010101110100011110110</span><br><br>
+        Valor decimal aproximado = <span class="highlight">138.91</span>
+      </div>
+    </div>
+
+    <!-- Actividad 2 -->
+    <div class="card">
+      <h3>Actividad extra 2</h3>
+      <p>Comparativa de <b>GPUs</b> utilizadas, potencia y costos de entrenamiento en modelos de IA modernos (2025):</p>
+      <table>
+        <tr>
+          <th>Modelo</th><th>GPUs utilizadas</th><th>Potencia típica (W)</th><th>Costo por GPU (USD)</th><th>Costo total estimado (USD)</th>
+        </tr>
+        <tr><td>GPT-5 (OpenAI)</td><td>≈ 200 000 H100/H200</td><td>700 W (SXM)/350 W (PCIe)</td><td>2–7 USD / h</td><td>≈ 500–700 M USD</td></tr>
+        <tr><td>Grok-4 (xAI)</td><td>≈ 246 M H100 horas</td><td>700 W</td><td>1.9–2.2 USD / h</td><td>≈ 490 M USD</td></tr>
+        <tr><td>Llama 3 / 3.1 (Meta)</td><td>≈ 16 000 H100</td><td>700 W</td><td>2–5 USD / h</td><td>≈ 50–100 M USD</td></tr>
+        <tr><td>Claude 3.5 / 3.7 Sonnet (Anthropic)</td><td>No divulgado</td><td>700 W</td><td>—</td><td>≈ 20–30 M USD</td></tr>
+        <tr><td>DeepSeek V3/V3.2 (China)</td><td>≈ 2 048 H800</td><td>500–700 W</td><td>—</td><td>&lt; 6 M USD</td></tr>
+      </table>
+      <p style="margin-top:15px;font-size:14px;color:#555;">*Datos aproximados basados en informes técnicos 2024–2025.</p>
+    </div>
+
+    <!-- Actividad 3 -->
+    <div class="card">
+      <h3>Actividad extra 3</h3>
+      <h4>GUI vs CLI</h4>
+      <p>
+        Los entornos <b>GUI</b> (Graphical User Interface) y <b>CLI</b> (Command Line Interface)
+        representan dos formas diferentes de interactuar con los sistemas informáticos.
+        La <b>CLI</b> requiere comandos escritos que otorgan precisión y control total,
+        mientras que la <b>GUI</b> emplea elementos visuales como ventanas, iconos y menús,
+        priorizando la usabilidad y la accesibilidad.
+      </p>
+      <table>
+        <tr><th>Aspecto</th><th>CLI</th><th>GUI</th></tr>
+        <tr><td>Interacción</td><td>Comandos en texto mediante terminal.</td><td>Elementos gráficos (botones, iconos).</td></tr>
+        <tr><td>Facilidad de uso</td><td>Requiere conocimiento técnico.</td><td>Más intuitiva y visual.</td></tr>
+        <tr><td>Precisión y control</td><td>Alta precisión, ideal para scripts y administración.</td><td>Menor precisión, orientada a uso cotidiano.</td></tr>
+        <tr><td>Personalización</td><td>Shells avanzados (PowerShell, Bash, Zsh).</td><td>Temas y diseños visuales.</td></tr>
+        <tr><td>Ejemplos de uso</td><td>Gestión de servidores, automatización.</td><td>Navegadores, aplicaciones multimedia.</td></tr>
+      </table>
+      <p style="margin-top:10px;font-size:14px;color:#555;">
+        <b>Conclusión:</b> La CLI ofrece control y eficiencia para usuarios avanzados; la GUI favorece la facilidad de uso y la experiencia visual.
+      </p>
+    </div>
+  </section>
+
+  <!-- === CERTIFICADOS === -->
+  <section id="certificados">
+    <h2>Certificados</h2>
+    <div class="card">
+      <h3>Certificado del Curso de Python</h3>
+      <p><b>Emitido a:</b> Isaac Gonzalez<br>
+         <b>Finalizado el:</b> 13 de octubre de 2025<br>
+         <b>Duración:</b> 8 horas – 2 módulos – Autoevaluación<br>
+         <b>Número de serie:</b> OA-2025-1013001830684</p>
+      <iframe src="CertificadoPy.pdf" title="Certificado de Python"></iframe>
+      <a href="CertificadoPy.pdf" download class="btn-descargar">Descargar PDF</a>
+    </div>
+  </section>
+
+  <!-- === CONTACTO === -->
+  <section id="contact">
+    <h2>Contacto</h2>
+    <div class="card">
+      <p>Puedes escribirme a: <b>isaac.gonzalez@epn.edu.ec</b></p>
+      <p>LinkedIn: <a href="https://www.linkedin.com/in/isaac-gonzález-24097a336" target="_blank">Mi Perfil</a></p>
+      <p>GitHub: <a href="https://github.com/Theisi1/M-todos-Num-ricos-Gr1CC.git" target="_blank">Mi Repositorio</a></p>
+    </div>
+  </section>
+
+  <footer>
+    <p>© 2025 Mi Portafolio - Desarrollado por Isaac González</p>
+  </footer>
+
+  <script>
+    function mostrarSeccion(id) {
+      document.querySelectorAll("section").forEach(sec => sec.classList.remove("active"));
+      document.getElementById(id).classList.add("active");
+      window.scrollTo({ top: 0, behavior: "smooth" });
+    }
+  </script>
+</body>
+</html>
