@@ -1,9 +1,0 @@
-main:
-  - title: "Sobre mí"
-    url: /about/
-  - title: "Portafolio Académico"
-    url: /actividades/
-  - title: "Certificados"
-    url: /certificados/
-  - title: "Contacto"
-    url: /contact/
