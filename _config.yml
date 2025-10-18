@@ -1,8 +1,0 @@
-title: "Portafolio de Isaac González"
-description: "Proyectos académicos y personales - Escuela Politécnica Nacional"
-baseurl: "/Portafolio"
-url: "https://theisi1.github.io"
-
-remote_theme: pages-themes/cayman@v0.2.0
-plugins:
-  - jekyll-remote-theme
