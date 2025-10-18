@@ -1,9 +1,21 @@
 ---
-layout: home
+layout: default
 title: "Isaac González"
-subtitle: "Estudiante de Ingeniería en Ciencias de la Computación – Escuela Politécnica Nacional"
 ---
 
-¡Bienvenido a mi portafolio académico! Aquí encontrarás una recopilación de mis actividades, proyectos y certificaciones más importantes.
+# 👋 ¡Bienvenido a mi Portafolio Académico!
 
-[Ver Portafolio Académico](actividades/)
+Soy **Isaac González**, estudiante de **Ingeniería en Ciencias de la Computación** en la **Escuela Politécnica Nacional (EPN)**.  
+Aquí encontrarás una recopilación de mis **actividades, proyectos y certificaciones** más importantes.
+
+---
+
+## 🚀 Explora mi sitio:
+- [🧠 Sobre mí](about/)
+- [📘 Portafolio Académico](actividades/)
+- [🎓 Certificados](certificados/)
+- [📬 Contacto](contact/)
+
+---
+
+📚 *Última actualización: Octubre 2025*
